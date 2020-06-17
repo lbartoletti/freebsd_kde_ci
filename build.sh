@@ -8,11 +8,11 @@ for p in `cat /tmp/to_build`
 done
 
 rm -fr /usr/local/poudriere/data/packages/jail-default/.latest/All
-mv pkgs/All /usr/local/poudriere/data/packages/jail-default/.latest/
-rm -fr pkgs
+mv /tmp/pkgs/All /usr/local/poudriere/data/packages/jail-default/.latest/
+rm -fr /tmp/pkgs
 
 set +e
-poudriere testport -j jail ${PORT}
+poudriere bulk -t -j jail -f /tmp/to_build
 RESULT=$?
 set -e
 
