@@ -12,7 +12,7 @@ SIP_NEW_VERSION=`grep py-sip /tmp/kde_to_update.html | awk -F "</*td>|</*tr>" '/
 sed -i '' -e "/SIP_VERSION=/s/=.*$/=\t\t${SIP_NEW_VERSION}/" Mk/Uses/pyqt.mk
 
 # ports using PYQT
-grep -r --include \*Makefile 'USE_PYQT' . | awk -F '/' '{print $1 "/" $2}' | uniq > /tmp/use_pyqt
+grep -r --include \*Makefile 'USE_PYQT' . | awk -F '/' '{print $2 "/" $3}' | uniq > /tmp/use_pyqt
 
 # Use sip
 cat /tmp/use_pyqt | xargs grep --include \*Makefile -r sip > /tmp/sip ;  awk -F '/' '{print $1 "/" $2}' /tmp/sip | uniq | grep -v py-sip > /tmp/use_sip
