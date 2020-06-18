@@ -4,7 +4,7 @@ PORTSDIR=/usr/ports
 
 cd ${PORTSDIR}
 for p in `cat /tmp/to_build`
-    sudo pkg fetch -y -o /tmp/pkgs `make missing-packages`
+	sudo pkg fetch -y -o /tmp/pkgs `make missing-packages`
 done
 
 rm -fr /usr/local/poudriere/data/packages/jail-default/.latest/All
