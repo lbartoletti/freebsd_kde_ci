@@ -24,7 +24,7 @@ QSCI_NEW_VERSION=`grep qscintilla2-qt5 /tmp/kde_to_update.html | awk -F "</*td>|
 sed -i '' -e "/QSCI2_VERSION=/s/=.*$/=\t\t${QSCI_NEW_VERSION}/" Mk/Uses/pyqt.mk
 
 # ports using qscintilla2
-grep -r --include \*Makefile 'qscintilla2' . | awk -F '/|:' '{print $2 "/" $3}' | sort | uniq | grep -v "qscintilla" > /tmp/use_qscintilla2
+grep -r --include \*Makefile 'qscintilla2' . | awk -F '/|:' '{print $2 "/" $3}' | sort | uniq | grep -v "qscintilla" | grep -v "Makefile" > /tmp/use_qscintilla2
 
 cat /tmp/use_qscintilla2 /tmp/use_sip | sort | uniq > /tmp/to_build
 cat /tmp/to_build | xargs Tools/scripts/bump-revision.sh
