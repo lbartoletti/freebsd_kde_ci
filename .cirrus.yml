@@ -3,12 +3,12 @@ env:
   ARCH: amd64
 
 task:
-  timeout_in: 120m
+  timeout_in: 230m
   freebsd_instance:
     matrix:
 #      image_family: freebsd-13-0-snap
       image_family: freebsd-12-1
-    cpu: 8
+    cpu: 16
     memory: 16G
   install_script:
     - sed -i.bak -e 's,pkg+http://pkg.FreeBSD.org/\${ABI}/quarterly,pkg+http://pkg.FreeBSD.org/\${ABI}/latest,' /etc/pkg/FreeBSD.conf
