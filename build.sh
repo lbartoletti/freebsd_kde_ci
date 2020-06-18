@@ -5,7 +5,7 @@ PORTSDIR=/usr/ports
 cd ${PORTSDIR}
 for p in `cat /tmp/to_build`
 do
-	cd ${PORTSIDR}/${p} ; sudo pkg fetch -y -o /tmp/pkgs `make missing-packages`
+	sudo pkg fetch -y -o /tmp/pkgs `make -C ${p} missing-packages`
 done
 
 cd ${PORTSDIR}
