@@ -15,7 +15,7 @@ mv /tmp/pkgs/All /usr/local/poudriere/data/packages/jail-default/.latest/
 rm -fr /tmp/pkgs
 
 set +e
-poudriere bulk -t -j jail -f /tmp/to_build
+poudriere bulk -t -S -j jail -f /tmp/to_build
 RESULT=$?
 set -e
 
