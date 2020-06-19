@@ -5,7 +5,7 @@ PORTSDIR=/usr/ports
 cd ${PORTSDIR}
 for p in `cat /tmp/to_build`
 do
-	sudo pkg fetch -y -o /tmp/pkgs `make -C ${p} missing-packages`
+	sudo pkg fetch -y -o /tmp/pkgs `make -C ${p} build-depends-list | awk -F'/' '{print $4"/"$5}'`
 done
 
 cd ${PORTSDIR}
