@@ -3,7 +3,7 @@ env:
   ARCH: amd64
 
 task:
-  timeout_in: 230m
+  timeout_in: 320m
   freebsd_instance:
     matrix:
 #      image_family: freebsd-13-0-snap
